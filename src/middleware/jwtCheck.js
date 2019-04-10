@@ -7,12 +7,12 @@ dotenv.load();
 
 export const jwtCheck = expressJwt({
   secret: expressJwtSecret({
-    jwksUri: `https://${process.env.AUTH0_TENANT}.auth0.com/.well-known/jwks.json`
+    jwksUri: `https://demo.identityserver.io/.well-known/openid-configuration/jwks`
   }),
 
   // Validate the audience and the issuer.
-  audience: 'https://api.codehero.com/v1/',
-  issuer: `https://${process.env.AUTH0_TENANT}.auth0.com/`,
+  audience: 'https://demo.identityserver.io/resources',
+  issuer: `https://demo.identityserver.io`,
   algorithms: ['RS256']
 });
 
